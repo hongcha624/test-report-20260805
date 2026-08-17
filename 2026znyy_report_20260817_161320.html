@@ -1,0 +1,494 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《2026子女姻缘详批》自动化测试报告</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#f0f2f5;color:#333;line-height:1.6;}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:32px 40px;}
+.header h1{font-size:24px;font-weight:600;margin-bottom:4px;}
+.header .sub{font-size:14px;opacity:.7;}
+.container{max-width:1300px;margin:0 auto;padding:24px;}
+/* 统计卡片 */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:24px;}
+.stat-card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.06);text-align:center;transition:transform .2s;}
+.stat-card:hover{transform:translateY(-2px);}
+.stat-card .val{font-size:32px;font-weight:700;line-height:1.2;}
+.stat-card .lbl{font-size:13px;color:#888;margin-top:4px;}
+.stat-card.total .val{color:#333;}
+.stat-card.pass .val{color:#52c41a;}
+.stat-card.fail .val{color:#ff4d4f;}
+.stat-card.error .val{color:#fa8c16;}
+.stat-card.rate .val{color:#1677ff;}
+/* 筛选按钮 */
+.filters{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.filters button{border:1px solid #d9d9d9;background:#fff;padding:6px 18px;border-radius:6px;font-size:13px;cursor:pointer;transition:all .2s;}
+.filters button:hover{border-color:#1677ff;color:#1677ff;}
+.filters button.active{background:#1677ff;color:#fff;border-color:#1677ff;}
+/* 表格 */
+.table-wrap{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead{background:#fafafa;}
+th{padding:12px 14px;text-align:left;font-weight:600;border-bottom:2px solid #f0f0f0;white-space:nowrap;}
+td{padding:10px 14px;border-bottom:1px solid #f5f5f5;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:#fafafa;}
+.detail-cell{max-width:260px;word-break:break-all;}
+/* badge */
+.badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;font-weight:500;}
+.badge-pass{background:#f6ffed;color:#52c41a;}
+.badge-fail{background:#fff2f0;color:#ff4d4f;}
+.badge-error{background:#fff7e6;color:#fa8c16;}
+.badge-skip{background:#f5f5f5;color:#999;}
+.badge-info{background:#e6f7ff;color:#1677ff;}
+.badge-pending,.badge-unknown{background:#fafafa;color:#888;}
+.sc-link{color:#1677ff;text-decoration:none;font-size:12px;}
+.sc-link:hover{text-decoration:underline;}
+.footer{text-align:center;padding:24px;font-size:12px;color:#aaa;}
+tr.row-fail td:first-child{border-left:3px solid #ff4d4f;}
+tr.row-error td:first-child{border-left:3px solid #fa8c16;}
+tr.row-pass td:first-child{border-left:3px solid #52c41a;}
+.total-row td{background:#f6f8fa;font-weight:600;text-align:right;padding:12px 14px;color:#333;font-size:14px;}
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>《2026子女姻缘详批》自动化测试报告</h1>
+    <div class="sub">产品: 2026子女姻缘详批 &nbsp;|&nbsp; 生成时间: 2026-08-17 16:13:25 &nbsp;|&nbsp; 目标: https://test.wtaluo.com/2026znyy/index?promoCode=auto_test&callback=dAFROAeemoyhS9Fm6FqXzxWR</div>
+  </div>
+  <div class="container">
+    <div class="stats">
+      <div class="stat-card total"><div class="val">35</div><div class="lbl">总计</div></div>
+      <div class="stat-card pass"><div class="val">35</div><div class="lbl">通过</div></div>
+      <div class="stat-card fail"><div class="val">0</div><div class="lbl">失败</div></div>
+      <div class="stat-card error"><div class="val">0</div><div class="lbl">异常/提示</div></div>
+      <div class="stat-card rate"><div class="val">100.0%</div><div class="lbl">通过率</div></div>
+    </div>
+  <div class="filters">
+    <button class="active" onclick="filter('all',this)">全部 (35)</button>
+    <button onclick="filter('pass',this)">通过 (35)</button>
+    <button onclick="filter('fail',this)">失败 (0)</button>
+    <button onclick="filter('error',this)">异常 (0)</button>
+    <button onclick="filter('info',this)">提示 (0)</button>
+    <button onclick="filter('skip',this)">跳过 (0)</button>
+    <button onclick="filter('unknown',this)">未确定 (0)</button>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>用例描述</th><th>输入内容</th><th>预期结果</th>
+          <th>实际结果</th><th>状态</th><th>耗时</th><th>详情</th><th>截图</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr class="row-pass">
+                <td>1</td>
+                <td>后台版权配置</td>
+                <td>[ADMIN_COPYRIGHT]</td>
+                <td>成功：后台版权配置及验证通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>104.3s</td>
+                <td class="detail-cell">后台版权配置及验证通过</td>
+                <td><a href="screenshots/product_bottom_copyright.png" target="_blank"><img src="screenshots/product_bottom_copyright.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>2</td>
+                <td>后台清空版权信息显示默认文案</td>
+                <td>[ADMIN_COPYRIGHT_CLEAR]</td>
+                <td>成功：产品页底部显示默认版权信息"大师匠心打造精品在线测算"</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>78.6s</td>
+                <td class="detail-cell">清空版权信息后产品页显示默认版权文案</td>
+                <td><a href="screenshots/clear_verify_product_page.png" target="_blank"><img src="screenshots/clear_verify_product_page.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>3</td>
+                <td>后台关闭诚信网站开关</td>
+                <td>[ADMIN_HONESTY_TOGGLE]</td>
+                <td>成功：产品页底部不显示诚信网站图片</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>90.1s</td>
+                <td class="detail-cell">诚信网站开关已关闭，产品页底部不显示诚信网站图片</td>
+                <td><a href="screenshots/product_bottom_honesty.png" target="_blank"><img src="screenshots/product_bottom_honesty.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>4</td>
+                <td>后台打开诚信网站开关</td>
+                <td>[ADMIN_HONESTY_TOGGLE_ON]</td>
+                <td>成功：产品页底部显示诚信网站图片</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>89.2s</td>
+                <td class="detail-cell">诚信网站开关已打开，产品页底部显示诚信网站图片</td>
+                <td><a href="screenshots/product_bottom_honesty_on.png" target="_blank"><img src="screenshots/product_bottom_honesty_on.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>5</td>
+                <td>后台打开首页单屏开关</td>
+                <td>[ADMIN_SINGLE_SCREEN_ON]</td>
+                <td>成功：产品页首页为单屏模式</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>101.3s</td>
+                <td class="detail-cell">首页单屏开关已打开，产品页首页为单屏模式</td>
+                <td><a href="screenshots/homepage_single_screen_单屏验证.png" target="_blank"><img src="screenshots/homepage_single_screen_单屏验证.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>6</td>
+                <td>后台关闭首页单屏开关</td>
+                <td>[ADMIN_SINGLE_SCREEN_OFF]</td>
+                <td>成功：产品页首页为多屏模式</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>113.5s</td>
+                <td class="detail-cell">首页单屏开关已关闭，产品页首页恢复多屏模式</td>
+                <td><a href="screenshots/homepage_multi_screen_多屏验证.png" target="_blank"><img src="screenshots/homepage_multi_screen_多屏验证.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>7</td>
+                <td>后台打开支付页单屏开关</td>
+                <td>[ADMIN_PAY_SINGLE_SCREEN_ON]</td>
+                <td>成功：支付页为单屏模式</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>105.8s</td>
+                <td class="detail-cell">支付页单屏开关已打开，支付页为单屏模式</td>
+                <td><a href="screenshots/pay_page支付页-单屏验证.png" target="_blank"><img src="screenshots/pay_page支付页-单屏验证.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>8</td>
+                <td>后台关闭支付页单屏开关</td>
+                <td>[ADMIN_PAY_SINGLE_SCREEN_OFF]</td>
+                <td>成功：支付页为多屏模式</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>106.9s</td>
+                <td class="detail-cell">支付页单屏开关已关闭，支付页恢复多屏模式</td>
+                <td><a href="screenshots/pay_page支付页-多屏验证.png" target="_blank"><img src="screenshots/pay_page支付页-多屏验证.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>9</td>
+                <td>后台配置首页资源位</td>
+                <td>[ADMIN_RESOURCE]</td>
+                <td>成功：产品页底部显示「精品测算」资源位</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>119.4s</td>
+                <td class="detail-cell">首页资源位配置成功，前端页面底部显示「精品测算」资源位</td>
+                <td><a href="screenshots/resource_verify_2026znyy_1786953035.png" target="_blank"><img src="screenshots/resource_verify_2026znyy_1786953035.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>10</td>
+                <td>点击首页资源位产品验证spCode</td>
+                <td>[ADMIN_RESOURCE_LINK]</td>
+                <td>成功：链接spCode为{产品code}-syzyw1</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>14.5s</td>
+                <td class="detail-cell">资源位链接 spCode=2026znyy-syzyw1 验证通过</td>
+                <td><a href="screenshots/resource_verify_2026znyy_1786953035.png" target="_blank"><img src="screenshots/resource_verify_2026znyy_1786953035.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>11</td>
+                <td>后台关闭首页是否显示资源位开关</td>
+                <td>[ADMIN_RESOURCE_TOGGLE]</td>
+                <td>首页不显示资源位：首页不显示资源位</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>94.9s</td>
+                <td class="detail-cell">首页不显示资源位，验证通过</td>
+                <td><a href="screenshots/resource_verify_2026znyy_1786953035.png" target="_blank"><img src="screenshots/resource_verify_2026znyy_1786953035.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>12</td>
+                <td>首页资源位拓展关闭</td>
+                <td>[ADMIN_RESOURCE_EXPAND_TOGGLE]off</td>
+                <td>不存在则通过：先测试关闭的</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>88.7s</td>
+                <td class="detail-cell">首页资源位拓展开关关闭，前端验证通过</td>
+                <td><a href="screenshots/resource_expand_verify_2026znyy_off_1786953235.png" target="_blank"><img src="screenshots/resource_expand_verify_2026znyy_off_1786953235.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>13</td>
+                <td>首页资源位拓展开启</td>
+                <td>[ADMIN_RESOURCE_EXPAND_TOGGLE]on</td>
+                <td>存在则通过：再测试开启的</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>96.9s</td>
+                <td class="detail-cell">首页资源位拓展开关打开，前端验证通过</td>
+                <td><a href="screenshots/resource_expand_verify_2026znyy_on_1786953333.png" target="_blank"><img src="screenshots/resource_expand_verify_2026znyy_on_1786953333.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>14</td>
+                <td>后台关闭开启排盘动画开关</td>
+                <td>[ADMIN_PAIPAN_ANIMATION_OFF]</td>
+                <td>支付页无排盘动画：支付页无排盘动画</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>114.9s</td>
+                <td class="detail-cell">关闭排盘动画后前端无排盘动画，验证通过</td>
+                <td><a href="screenshots/verify_no_paipan_animation_2026znyy.png" target="_blank"><img src="screenshots/verify_no_paipan_animation_2026znyy.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>15</td>
+                <td>隐私协议需手动勾选</td>
+                <td>[ADMIN_PRIVACY_REQUIRED]</td>
+                <td>提交时触发toast"请先勾选同意协议"</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>108.8s</td>
+                <td class="detail-cell">隐私协议需手动勾选，前端触发'请先勾选同意协议'提示，验证通过</td>
+                <td><a href="screenshots/privacy_verify_2026znyy_1786953560.png" target="_blank"><img src="screenshots/privacy_verify_2026znyy_1786953560.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>16</td>
+                <td>隐私协议无需勾选</td>
+                <td>[ADMIN_PRIVACY_OPTIONAL]</td>
+                <td>无toast提示直接进入支付页</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>105.0s</td>
+                <td class="detail-cell">隐私协议不需手动勾选，前端无提示直接进入支付页，验证通过</td>
+                <td><a href="screenshots/privacy_verify_2026znyy_1786953666.png" target="_blank"><img src="screenshots/privacy_verify_2026znyy_1786953666.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>17</td>
+                <td>首页挽留关闭(后台)</td>
+                <td>[ADMIN_STAY_PAGE_OFF]</td>
+                <td>访问产品链接从首页操作返回-未跳转挽留页(跳转空白页或退出产品链接页面)则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>121.4s</td>
+                <td class="detail-cell">后台配置首页挽留关闭，前端返回未跳转挽留页，验证通过</td>
+                <td><a href="screenshots/stay_page_off_verify_2026znyy.png" target="_blank"><img src="screenshots/stay_page_off_verify_2026znyy.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>18</td>
+                <td>首页挽留全局打开(后台)</td>
+                <td>[ADMIN_STAY_PAGE_ON]</td>
+                <td>访问产品链接从首页操作返回-跳转到挽留页(链接带csdq/index?)则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>100.8s</td>
+                <td class="detail-cell">后台配置首页挽留全局打开，前端返回跳转到挽留页（URL含csdq），验证通过</td>
+                <td><a href="screenshots/stay_page_on_verify_2026znyy.png" target="_blank"><img src="screenshots/stay_page_on_verify_2026znyy.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>19</td>
+                <td>首页挽留分流(后台)</td>
+                <td>[ADMIN_STAY_PAGE_REFLOW]</td>
+                <td>访问产品链接从首页操作返回-跳转到测评页(链接带csdq/psychology?);重新打开产品链接拼上reflowType=sms访问从首页返回-跳转到测算页(链接带csdq/index?),两个场景都满足则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>108.9s</td>
+                <td class="detail-cell">后台配置挽留分流，普通访问返回跳测评页(URL含csdq/psychology?)，短邮回流返回跳测算页(URL含csdq/index?)，验证通过</td>
+                <td><a href="screenshots/stay_page_reflow_verify_2026znyy.png" target="_blank"><img src="screenshots/stay_page_reflow_verify_2026znyy.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>20</td>
+                <td>首页挽留分流关闭(后台)</td>
+                <td>[ADMIN_STAY_PAGE_REFLOW_SMS]</td>
+                <td>访问产品链接从首页操作返回-未跳转挽留页则通过;重新打开产品链接拼上reflowType=sms访问从首页返回-跳转到测算页(链接带csdq/index?),两个场景都满足则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>123.8s</td>
+                <td class="detail-cell">后台配置挽留分流，普通访问返回未跳转挽留页，短邮回流返回跳测算页(URL含csdq/index?)，验证通过</td>
+                <td><a href="screenshots/stay_page_reflow_sms_verify_2026znyy.png" target="_blank"><img src="screenshots/stay_page_reflow_sms_verify_2026znyy.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>21</td>
+                <td>检查页面滚动文案</td>
+                <td>[CHECK_SCROLL_TEXT]</td>
+                <td>成功：页面存在滚动文案</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>4.1s</td>
+                <td class="detail-cell">页面存在滚动文案: 内容纯属娱乐，暂不向未满18岁青少年提供服务。本网页数据安全由阿里云提供，严格按照法律法规和用户协议</td>
+                <td><a href="screenshots/case021_检查页面滚动文案.png" target="_blank"><img src="screenshots/case021_检查页面滚动文案.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>22</td>
+                <td>输入2-4位合法汉字（边界内）</td>
+                <td>张三</td>
+                <td>成功：提交成功</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>27.5s</td>
+                <td class="detail-cell">提交成功，已进入支付/订单页面</td>
+                <td><a href="screenshots/case022_输入2_4位合法汉字_边界内_.png" target="_blank"><img src="screenshots/case022_输入2_4位合法汉字_边界内_.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>23</td>
+                <td>输入1位汉字（少于最小长度）</td>
+                <td>张</td>
+                <td>Toast：姓名不能少于2个字</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>23.0s</td>
+                <td class="detail-cell">Toast 提示: 姓名不能少于2个字</td>
+                <td><a href="screenshots/case023_输入1位汉字_少于最小长度_.png" target="_blank"><img src="screenshots/case023_输入1位汉字_少于最小长度_.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>24</td>
+                <td>输入大于4位汉字（超出最大长度）</td>
+                <td>张三李四王</td>
+                <td>Toast：姓名不能大于4个字</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>22.9s</td>
+                <td class="detail-cell">Toast 提示: 姓名不能超过4个字</td>
+                <td><a href="screenshots/case024_输入大于4位汉字_超出最大长度_.png" target="_blank"><img src="screenshots/case024_输入大于4位汉字_超出最大长度_.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>25</td>
+                <td>输入英文、数字或特殊符号</td>
+                <td>ab</td>
+                <td>Toast：姓名必须为汉字</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>23.2s</td>
+                <td class="detail-cell">Toast 提示: 姓名必须为汉字</td>
+                <td><a href="screenshots/case025_输入英文_数字或特殊符号.png" target="_blank"><img src="screenshots/case025_输入英文_数字或特殊符号.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>26</td>
+                <td>输入敏感词（如国家领导人姓名）</td>
+                <td>毛泽东</td>
+                <td>Toast：暂时无法为您服务，请修改姓名后再提交</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>22.9s</td>
+                <td class="detail-cell">Toast 提示成功: 暂时无法为您服务，请修改姓名后再提交</td>
+                <td><a href="screenshots/case026_输入敏感词_如国家领导人姓名_.png" target="_blank"><img src="screenshots/case026_输入敏感词_如国家领导人姓名_.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>27</td>
+                <td>不输入姓名</td>
+                <td></td>
+                <td>Toast：姓名不能为空</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>23.1s</td>
+                <td class="detail-cell">Toast 提示: 姓名不能为空</td>
+                <td><a href="screenshots/case027_不输入姓名.png" target="_blank"><img src="screenshots/case027_不输入姓名.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>28</td>
+                <td>未成年（18岁）年龄校验</td>
+                <td>张三</td>
+                <td>Toast：年龄未满18岁，暂不提供服务！</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>16.0s</td>
+                <td class="detail-cell">未成年校验通过: 年龄未满18岁，暂不提供服务！</td>
+                <td><a href="screenshots/case028_未成年_18岁_年龄校验.png" target="_blank"><img src="screenshots/case028_未成年_18岁_年龄校验.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>29</td>
+                <td>点击隐私协议链接进入协议页</td>
+                <td>[点击隐私协议]</td>
+                <td>url:privacy</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>10.2s</td>
+                <td class="detail-cell">URL 匹配隐私协议页 'privacy' → https://test.wtaluo.com/unityportal/agreement</td>
+                <td><a href="screenshots/case029_点击隐私协议链接进入协议页.png" target="_blank"><img src="screenshots/case029_点击隐私协议链接进入协议页.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>30</td>
+                <td>ks渠道首页提示语显示</td>
+                <td>[CHECK_CHANNEL_TIP]ks01</td>
+                <td>成功：页面存在渠道提示语</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>4.1s</td>
+                <td class="detail-cell">找到渠道提示语: text定位+可见: 用户您好，订单/产品问题可通过点击页面内「客服」浮窗处理</td>
+                <td><a href="screenshots/case030_ks渠道首页提示语显示.png" target="_blank"><img src="screenshots/case030_ks渠道首页提示语显示.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>31</td>
+                <td>tx渠道首页提示语显示</td>
+                <td>[CHECK_CHANNEL_TIP]tx01</td>
+                <td>成功：页面存在渠道提示语</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>4.1s</td>
+                <td class="detail-cell">找到渠道提示语: text定位+可见: 需付费后方可查看结果，结果纯属娱乐仅供参考</td>
+                <td><a href="screenshots/case031_tx渠道首页提示语显示.png" target="_blank"><img src="screenshots/case031_tx渠道首页提示语显示.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>32</td>
+                <td>订单提交参数检查</td>
+                <td>[CHECK_MYORDER_PARAMS]</td>
+                <td>四个参数均正确则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>26.0s</td>
+                <td class="detail-cell">myorder 参数验证通过（indexurl/promocode/productcode/callback 均正确）</td>
+                <td><a href="screenshots/case032_订单提交参数检查.png" target="_blank"><img src="screenshots/case032_订单提交参数检查.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>33</td>
+                <td>百度信息流客服检查</td>
+                <td>[CHECK_BAIDU_CS]</td>
+                <td>存在商家订单号则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>9.3s</td>
+                <td class="detail-cell">百度信息流客服检查通过（渠道auto_test，跳转页含商家订单号）</td>
+                <td><a href="screenshots/case033_百度信息流客服检查.png" target="_blank"><img src="screenshots/case033_百度信息流客服检查.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>34</td>
+                <td>点击【投诉反馈】按钮</td>
+                <td>[CHECK_COMPLAINT]</td>
+                <td>成功：页面出现"请选择投诉该网页的原因"等文案则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>13.5s</td>
+                <td class="detail-cell">投诉反馈页面打开成功</td>
+                <td><a href="screenshots/case034_点击_投诉反馈_按钮.png" target="_blank"><img src="screenshots/case034_点击_投诉反馈_按钮.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+<tr class="row-pass">
+                <td>35</td>
+                <td>点击【找回结果】按钮</td>
+                <td>[CHECK_RETRIEVE_RESULT]张三</td>
+                <td>成功：进入查单页出现"查询"等文案则通过</td>
+                <td>-</td>
+                <td><span class="badge badge-pass">通过</span></td>
+                <td>26.2s</td>
+                <td class="detail-cell">找回结果/查单页打开成功</td>
+                <td><a href="screenshots/case035_点击_找回结果_按钮.png" target="_blank"><img src="screenshots/case035_点击_找回结果_按钮.png" style="max-height:60px;max-width:120px;border-radius:4px;border:1px solid #eee;cursor:pointer;" title="点击查看大图"/></a></td>
+            </tr>
+
+      </tbody>
+      <tfoot>
+        <tr class="total-row">
+          <td colspan="9">总耗时: 37分24秒</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="footer">Playwright 自动化测试引擎 &mdash; 报告仅供内部使用</div>
+</div>
+<script>
+function filter(type, btn) {
+  document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('tbody tr').forEach(row => {
+    if (type === 'all') row.style.display = '';
+    else row.style.display = row.classList.contains('row-' + type) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
